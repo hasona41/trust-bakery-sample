@@ -1,27 +1,76 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ترست لمعدات المخابز | نسخة تجريبية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--g:#1f7a6d;--b:#1b5e8c;--ink:#1d2427;--mut:#5b676b;--bg:#f6f8f8}
-*{box-sizing:border-box}body{margin:0;font-family:Tahoma,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
-.bar{background:#fff3cd;color:#664d03;text-align:center;padding:8px 12px;font-size:14px}
-header{background:linear-gradient(135deg,var(--b),var(--g));color:#fff;padding:48px 20px;text-align:center}
-header h1{margin:0 0 8px;font-size:clamp(26px,6vw,42px)}header p{margin:0 auto;max-width:560px;opacity:.95}
-.logo{font-weight:800;letter-spacing:4px;font-size:15px;opacity:.85;margin-bottom:10px;direction:ltr}
-main{max-width:1000px;margin:0 auto;padding:28px 16px}h2{font-size:24px;margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
-.card{background:#fff;border-radius:14px;padding:18px;box-shadow:0 1px 4px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px}
-.ph{height:130px;border-radius:10px;background:repeating-linear-gradient(45deg,#e8eeee,#e8eeee 10px,#f1f5f5 10px,#f1f5f5 20px);display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px}
-.tag{font-size:12px;color:var(--g);font-weight:700}.card h3{margin:0;font-size:19px}.card p{margin:0;color:var(--mut);font-size:14px}
-.price{font-size:20px;font-weight:800;color:var(--b);margin-top:auto}.price small{font-size:12px;font-weight:400;color:var(--mut)}
-.btn{display:block;text-align:center;background:var(--g);color:#fff;border-radius:8px;padding:10px;text-decoration:none;font-weight:700}
-footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 16px 40px}
+:root{--navy:#0b2540;--blue:#1b5e8c;--teal:#16a085;--sun:#f5a524;--ink:#14212b;--mut:#5d6b76;--bg:#f4f7f9;--card:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Cairo,Tahoma,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+.bar{background:var(--sun);color:#3b2a00;text-align:center;padding:7px 12px;font-size:13px;font-weight:700}
+nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid #e3eaef}
+.brand{font-weight:800;color:var(--navy);font-size:19px;display:flex;align-items:center;gap:8px}
+.brand i{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff;border-radius:10px;padding:2px 9px;font-size:14px;letter-spacing:2px;direction:ltr}
+nav a.q{background:var(--teal);color:#fff;text-decoration:none;padding:7px 16px;border-radius:999px;font-weight:700;font-size:14px}
+.hero{background:radial-gradient(900px 400px at 85% -10%,#2a7fb5 0,transparent 60%),linear-gradient(160deg,var(--navy),#12486f 60%,#0f7a6b);color:#fff;padding:56px 20px 70px;position:relative;overflow:hidden}
+.hero .in{max-width:1000px;margin:auto;display:grid;gap:28px;align-items:center}
+.hero h1{font-size:clamp(30px,7vw,52px);line-height:1.25;margin:0 0 12px;font-weight:800}
+.hero h1 span{color:var(--sun)}.hero p{margin:0 0 22px;font-size:17px;opacity:.92;max-width:520px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.b{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:12px;font-weight:700;text-decoration:none;font-size:16px}
+.b1{background:var(--sun);color:#3b2a00}.b2{border:2px solid rgba(255,255,255,.5);color:#fff}
+.hero svg{width:100%;max-width:360px;margin:auto;display:block;filter:drop-shadow(0 20px 30px rgba(0,0,0,.35))}
+.stats{max-width:1000px;margin:-36px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative}
+.stats div{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 8px 24px rgba(11,37,64,.1)}
+.stats b{display:block;font-size:20px;color:var(--blue)}.stats span{font-size:12.5px;color:var(--mut)}
+section{max-width:1000px;margin:auto;padding:48px 16px 8px}
+h2{font-size:28px;margin:0 0 4px;color:var(--navy);font-weight:800}.sub{color:var(--mut);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 2px 10px rgba(11,37,64,.07);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,37,64,.14)}
+.art{background:linear-gradient(145deg,#e6f0f7,#d3e7e3);padding:18px;display:flex;justify-content:center;position:relative}
+.art svg{height:150px;width:auto}.tag{position:absolute;top:12px;inset-inline-start:12px;background:#fff;color:var(--teal);font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h3{margin:0;font-size:20px;color:var(--navy)}.body p{margin:0;color:var(--mut);font-size:14.5px}
+.pr{margin-top:auto;padding-top:10px;display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.pr b{font-size:22px;color:var(--blue)}.pr small{color:#9a6b00;background:#fff4d6;border-radius:6px;padding:0 8px;font-size:12px;font-weight:700}
+.card .b{background:var(--navy);color:#fff;min-height:44px;margin-top:8px;font-size:15px}
+.why{display:grid;gap:12px}.why div{background:#fff;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.why em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;flex:none}
+.why b{display:block;color:var(--navy)}.why span{font-size:14px;color:var(--mut)}
+.quote{margin:48px 16px 0}.quote .in{max-width:1000px;margin:auto;background:linear-gradient(135deg,var(--navy),#0f7a6b);color:#fff;border-radius:24px;padding:32px 22px;text-align:center}
+.quote h2{color:#fff}.quote p{opacity:.9;margin:6px 0 18px}
+.wa{background:#25d366;color:#053b1c}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:28px 16px 40px}
+@media(min-width:720px){.hero .in{grid-template-columns:1.2fr 1fr}.grid{grid-template-columns:repeat(3,1fr)}.why{grid-template-columns:repeat(3,1fr)}.stats b{font-size:26px}}
 </style></head><body>
 <div class="bar">نسخة تجريبية للمراجعة. الأسعار افتراضية وليست أسعار ترست الحقيقية.</div>
-<header><div class="logo">TERST</div><h1>ترست لمعدات المخابز</h1><p>أفران وعجانات ومضارب وماكينات حلويات للمخابز والمصانع.</p></header>
-<main><h2>المنتجات</h2><div class="grid" id="g"></div></main>
-<footer>للاستفسار وعروض الأسعار تواصل مع ترست عبر صفحتها على فيسبوك. بيانات التواصل تُضاف بعد تأكيدها.</footer>
+<nav><div class="brand"><i>TERST</i> ترست لمعدات المخابز</div><a class="q" href="#quote">اطلب عرض سعر</a></nav>
+<div class="hero"><div class="in"><div>
+<h1>معدات مخابز <span>تشتغل بجد</span> زي مخبزك</h1>
+<p>أفران وعجانات ومضارب وماكينات كحك وبسكوت. اختار المعدة المناسبة لمخبزك واطلب عرض السعر في دقيقة.</p>
+<div class="cta"><a class="b b1" href="#products">شوف المنتجات</a><a class="b b2" href="#quote">كلمنا</a></div></div>
+<svg viewBox="0 0 220 200" aria-hidden="true"><use href="#oven"/></svg></div></div>
+<div class="stats"><div><b>6</b><span>منتجات أساسية</span></div><div><b>٤</b><span>فئات</span></div><div><b>عرض سعر</b><span>لكل منتج</span></div></div>
+<section id="products"><h2>منتجاتنا</h2><p class="sub">الصور رسومات توضيحية والأسعار افتراضية لحين تأكيدها.</p><div class="grid" id="g"></div></section>
+<section><h2>ليه ترست؟</h2><p class="sub">نقاط تجريبية تتعدل بعد مراجعة الشركة.</p><div class="why">
+<div><em>١</em><p style="margin:0"><b>خط منتجات واضح</b><span>أفران وعجانات ومضارب وماكينات حلويات.</span></p></div>
+<div><em>٢</em><p style="margin:0"><b>تجهيز مخبز كامل</b><span>من الفرن للعجان للماكينات في مكان واحد.</span></p></div>
+<div><em>٣</em><p style="margin:0"><b>دعم وصيانة</b><span>تفاصيل الضمان والصيانة تضاف بعد التأكيد.</span></p></div></div></section>
+<div class="quote" id="quote"><div class="in"><h2>اطلب عرض سعر</h2><p>أرسل اسم المعدة وهنرد عليك بالسعر والتفاصيل.</p>
+<div class="cta" style="justify-content:center"><a class="b wa" href="#quote">واتساب (الرقم يضاف لاحقًا)</a><a class="b b2" href="#quote">اتصال (الرقم يضاف لاحقًا)</a></div></div></div>
+<footer>© ترست لمعدات المخابز. نسخة تجريبية، الأسعار والصور افتراضية.</footer>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9d6df"/><stop offset="1" stop-color="#8fa3b2"/></linearGradient>
+<linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a7fb5"/><stop offset="1" stop-color="#0b2540"/></linearGradient>
+<symbol id="oven" viewBox="0 0 220 200"><rect x="20" y="20" width="180" height="150" rx="14" fill="url(#st)"/><rect x="20" y="20" width="180" height="30" rx="14" fill="url(#bl)"/><circle cx="50" cy="35" r="6" fill="#f5a524"/><circle cx="72" cy="35" r="6" fill="#fff"/><rect x="130" y="30" width="56" height="10" rx="5" fill="#16a085"/><rect x="36" y="64" width="148" height="88" rx="8" fill="#14212b"/><rect x="44" y="72" width="132" height="62" rx="5" fill="#f5a524" opacity=".85"/><rect x="60" y="86" width="100" height="10" rx="4" fill="#c4731a"/><rect x="60" y="106" width="100" height="10" rx="4" fill="#c4731a"/><rect x="56" y="140" width="108" height="6" rx="3" fill="#cfd8de"/><rect x="36" y="170" width="14" height="14" fill="#52606b"/><rect x="170" y="170" width="14" height="14" fill="#52606b"/></symbol>
+<symbol id="oven2" viewBox="0 0 220 200"><rect x="14" y="12" width="192" height="160" rx="14" fill="url(#st)"/><rect x="14" y="12" width="192" height="30" rx="14" fill="url(#bl)"/><circle cx="44" cy="27" r="6" fill="#f5a524"/><circle cx="66" cy="27" r="6" fill="#fff"/><circle cx="88" cy="27" r="6" fill="#fff"/><rect x="28" y="54" width="164" height="50" rx="7" fill="#14212b"/><rect x="34" y="60" width="152" height="38" rx="4" fill="#f5a524" opacity=".85"/><rect x="28" y="110" width="164" height="50" rx="7" fill="#14212b"/><rect x="34" y="116" width="152" height="38" rx="4" fill="#f5a524" opacity=".85"/><rect x="30" y="172" width="14" height="14" fill="#52606b"/><rect x="176" y="172" width="14" height="14" fill="#52606b"/></symbol>
+<symbol id="spiral" viewBox="0 0 220 200"><rect x="30" y="170" width="160" height="14" rx="7" fill="#52606b"/><rect x="40" y="70" width="80" height="100" rx="12" fill="url(#bl)"/><ellipse cx="150" cy="120" rx="52" ry="14" fill="#8fa3b2"/><path d="M98 120h104l-14 50h-76z" fill="url(#st)"/><ellipse cx="150" cy="120" rx="52" ry="12" fill="#f3e7d3"/><path d="M60 62h70l16 40" stroke="#52606b" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M146 100v20" stroke="#16a085" stroke-width="8" stroke-linecap="round"/><circle cx="60" cy="150" r="7" fill="#f5a524"/></symbol>
+<symbol id="whisk" viewBox="0 0 220 200"><rect x="40" y="176" width="140" height="12" rx="6" fill="#52606b"/><rect x="150" y="30" width="26" height="150" rx="8" fill="url(#bl)"/><rect x="60" y="24" width="116" height="40" rx="16" fill="url(#bl)"/><rect x="104" y="64" width="10" height="26" fill="#8fa3b2"/><path d="M109 90c-22 14-22 44 0 50 22-6 22-36 0-50zM109 92v46M99 100c-6 12-4 28 4 34M119 100c6 12 4 28-4 34" stroke="#c9d6df" stroke-width="4" fill="none"/><path d="M62 130h94l-10 46H72z" fill="url(#st)"/><ellipse cx="109" cy="130" rx="47" ry="8" fill="#f3e7d3"/></symbol>
+<symbol id="kahk" viewBox="0 0 220 200"><rect x="30" y="170" width="160" height="14" rx="7" fill="#52606b"/><path d="M60 20h60l-10 40H70z" fill="url(#st)"/><rect x="50" y="60" width="90" height="100" rx="12" fill="url(#bl)"/><rect x="62" y="80" width="40" height="26" rx="6" fill="#14212b"/><circle cx="120" cy="92" r="7" fill="#f5a524"/><rect x="140" y="130" width="62" height="14" rx="4" fill="#8fa3b2"/><circle cx="154" cy="124" r="9" fill="#e0a45a"/><circle cx="174" cy="124" r="9" fill="#e0a45a"/><circle cx="194" cy="124" r="9" fill="#e0a45a"/></symbol>
+<symbol id="biscuit" viewBox="0 0 220 200"><rect x="20" y="170" width="180" height="14" rx="7" fill="#52606b"/><rect x="20" y="50" width="100" height="112" rx="12" fill="url(#bl)"/><circle cx="70" cy="90" r="26" fill="#cfd8de"/><circle cx="70" cy="90" r="10" fill="#52606b"/><rect x="40" y="128" width="60" height="12" rx="4" fill="#14212b"/><rect x="112" y="136" width="96" height="14" rx="7" fill="#14212b"/><rect x="124" y="124" width="22" height="12" rx="3" fill="#e0a45a"/><rect x="152" y="124" width="22" height="12" rx="3" fill="#e0a45a"/><rect x="180" y="124" width="22" height="12" rx="3" fill="#e0a45a"/><circle cx="125" cy="143" r="5" fill="#8fa3b2"/><circle cx="195" cy="143" r="5" fill="#8fa3b2"/></symbol>
+</defs></svg>
 <script>
-var P=[["أفران","فرن 5070 ترست","فرن مخابز من ترست للإنتاج اليومي.",85000],["أفران","فرن 6080 ترست","الفرن الأكبر في الخط، لإنتاج أعلى.",110000],["عجانات","عجان دودة","عجان دودة لتجهيز العجين بانتظام.",48000],["خلاطات","مضرب","مضرب للكريمات والخلطات والحلويات.",32000],["ماكينات حلويات","مكنة كحك","ماكينة تشكيل الكحك.",41000],["ماكينات حلويات","مكنة بسكوت","ماكينة تشكيل البسكويت.",56000]];
-document.getElementById("g").innerHTML=P.map(function(p){return '<div class="card"><div class="ph">صورة المنتج لاحقًا</div><span class="tag">'+p[0]+'</span><h3>'+p[1]+'</h3><p>'+p[2]+'</p><div class="price">'+p[3].toLocaleString("ar-EG")+' جنيه <small>(سعر افتراضي)</small></div><a class="btn" href="#">اطلب عرض سعر</a></div>'}).join("");
+var P=[["oven","أفران","فرن 5070 ترست","فرن مخابز من ترست للإنتاج اليومي.",85000],["oven2","أفران","فرن 6080 ترست","الفرن الأكبر في الخط، لإنتاج أعلى.",110000],["spiral","عجانات","عجان دودة","عجان دودة لتجهيز العجين بانتظام.",48000],["whisk","خلاطات","مضرب","مضرب للكريمات والخلطات والحلويات.",32000],["kahk","ماكينات حلويات","مكنة كحك","ماكينة تشكيل الكحك.",41000],["biscuit","ماكينات حلويات","مكنة بسكوت","ماكينة تشكيل البسكويت.",56000]];
+document.getElementById("g").innerHTML=P.map(function(p){return '<div class="card"><div class="art"><span class="tag">'+p[1]+'</span><svg viewBox="0 0 220 200"><use href="#'+p[0]+'"/></svg></div><div class="body"><h3>'+p[2]+'</h3><p>'+p[3]+'</p><div class="pr"><b>'+p[4].toLocaleString("ar-EG")+' جنيه</b><small>سعر افتراضي</small></div><a class="b" href="#quote">اطلب عرض سعر</a></div></div>'}).join("")
 </script></body></html>
