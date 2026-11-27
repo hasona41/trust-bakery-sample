@@ -100,7 +100,7 @@ footer{text-align:center;color:var(--mut);font-size:11.5px;padding:20px 12px 28p
 <div><em>1</em><p><b>خط منتجات واضح</b><span>أفران وعجانات ومضارب وماكينات حلويات.</span></p></div>
 <div><em>2</em><p><b>تجهيز مخبز كامل</b><span>من الفرن للعجان للماكينات في مكان واحد.</span></p></div>
 <div><em>3</em><p><b>دعم وصيانة</b><span>تفاصيل الضمان والصيانة تضاف بعد التأكيد.</span></p></div></div></section>
-<section><h2>شروط العرض</h2><div class="terms">• الأسعار غير شاملة الضريبة والقيمة المضافة.<br>• مدة سريان عرض السعر مكتوبة في كل عرض (ظهرت 3 أشهر في عرض فبراير 2026، وأسبوعان في عرض يونيو 2026).<br>• أسعار الفرنين والعجان من عروض الشركة، وباقي الأسعار افتراضية.<br>• العنوان: المنزلة، دقهلية، جمهورية مصر العربية.</div></section>
+<section><h2>شروط العرض</h2><div class="terms">• الأسعار غير شاملة الضريبة والقيمة المضافة.<br>• مدة سريان عرض السعر أسبوعان من تاريخه.<br>• أسعار الفرنين والعجان من عروض الشركة، وباقي الأسعار افتراضية.<br>• العنوان: المنزلة، دقهلية، جمهورية مصر العربية.</div></section>
 <div class="quote" id="quote"><div class="in"><h2>اطلب عرض سعر</h2><p>أرسل اسم المعدة وهنرد عليك بالسعر والتفاصيل.</p>
 <div class="cta" style="justify-content:center"><a class="b wa" href="https://wa.me/201282710108">واتساب 01282710108</a><a class="b b2" href="tel:01020555775">اتصال 01020555775</a></div></div></div>
 <footer>شركة ترست للصناعات الهندسية ومستلزمات المخابز · المنزلة، دقهلية · 01282710108 – 01020555775<br>نسخة تجريبية: الصور توضيحية، وأسعار غير الأفران والعجان افتراضية.</footer>
@@ -119,7 +119,7 @@ var I1="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHCAkIBgoJCAkMC
 var OVS=["الفرن بالكامل من الإستانلس الحراري 430","بيت نار 3 ملي 304 إستانلس حراري","عزل صخري 12.5 سم للحفاظ على درجة الحرارة داخل الفرن","زجاج حراري في الباب لمتابعة المنتج داخل الفرن ومتابعة التسوية","إضاءة داخلية لتسهيل الرؤية","لوحة تحكم كاملة ماركة شنايدر فرنساوي","قواطع حرارية لحماية التيار الكهربائي","دائرة حماية لحماية مواتير التشغيل","مواتير إيطالي أو تركي الصنع","ولاعة إيطالي الصنع","ترموستات تحكم في درجة الحرارة","الفولت 380 & 220","جهاز إنذار للتنبيه أثناء تسوية المنتج وضبط الوقت المطلوب","دائرة بخار داخلية والتحكم في كمياتها"];
 var MXS=["شاسية العجان مصنوعة من أعلى الخامات","دراع العجان استانلس 304 / 50 ملي","حلة العجان من الاستانلس الطبي 304 عالي الجودة"];
 var P=[[I1,"أفران","فرن 5070 ترست","فرن بمقاس 50×70×15 كما في عرض السعر (يونيو 2026).",230000,1,OVS],[I2,"أفران","فرن 6080 ترست","فرن بمقاس 80×60 كما في عرض السعر (فبراير 2026).",230000,1,OVS],["spiral","عجانات","عجان دودة","عجانة دودة 2 شوال كما في عرض السعر (يونيو 2026).",200000,1,MXS],["whisk","خلاطات","مضرب","مضرب للكريمات والخلطات والحلويات.",32000,0,[]],["kahk","ماكينات حلويات","مكنة كحك","ماكينة تشكيل الكحك.",41000,0,[]],["biscuit","ماكينات حلويات","مكنة بسكوت","ماكينة تشكيل البسكويت.",56000,0,[]]];
-var VALID="3 أشهر من تاريخه",PH1="01282710108",PH2="01020555775";
+var VALID="أسبوعين من تاريخه",PH1="01282710108",PH2="01020555775";
 document.getElementById("g").innerHTML=P.map(function(p){return '<div class="card"><div class="art"><span class="tag">'+p[1]+'</span>'+(p[0].length>40?'<img src="'+p[0]+'" alt="'+p[2]+'">':'<svg viewBox="0 0 220 200"><use href="#'+p[0]+'"/></svg>')+'</div><div class="body"><h3>'+p[2]+'</h3><p>'+p[3]+'</p>'+(p[6].length?'<details class="sp"><summary>المواصفات</summary><ul>'+p[6].map(function(s){return '<li>'+s+'</li>'}).join("")+'</ul></details>':'')+'<div class="pr"><b>'+p[4].toLocaleString("ar-EG")+' جنيه</b>'+(p[5]?'<small class="ok">من عرض سعر الشركة، غير شامل الضريبة</small>':'<small>سعر افتراضي</small>')+'</div><a class="b" href="#quote">اطلب عرض سعر</a></div></div>'}).join("");
 
 var TRUST_WA="201282710108";
@@ -200,7 +200,7 @@ document.getElementById("mk").onclick=async function(){
  document.getElementById("pv").src=c.toDataURL("image/jpeg",0.85);document.getElementById("res").style.display="block";
  var txt=encodeURIComponent(summary(d)),wa=document.getElementById("wa");
  wa.href="https://wa.me/"+(TRUST_WA?TRUST_WA:"")+"?text="+txt;
- document.getElementById("wh").textContent=TRUST_WA?"بعد فتح واتساب، أرفق ملف الـPDF الذي حملته.":"رقم واتساب ترست غير مضاف بعد (مكان تجريبي). الزر يفتح واتساب لتختار جهة الاتصال بنفسك. أرفق ملف الـPDF بعد تحميله.";
+ document.getElementById("wh").textContent=TRUST_WA?"بعد فتح واتساب، أرفق ملف الـPDF الذي حملته.":"الزر يفتح واتساب ترست برسالة جاهزة. أرفق ملف الـPDF بعد تحميله.";
  document.getElementById("res").scrollIntoView({behavior:"smooth",block:"nearest"})};
 function fname(){return "terst-quote.pdf"}
 document.getElementById("dl").onclick=function(){if(!CUR)return;var a=document.createElement("a");a.href=URL.createObjectURL(CUR.blob);a.download=fname();document.body.appendChild(a);a.click();a.remove()};
