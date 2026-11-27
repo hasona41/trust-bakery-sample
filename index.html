@@ -17,9 +17,11 @@ nav{position:sticky;top:0;z-index:6;background:var(--nav);backdrop-filter:blur(1
 .tg{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--chip);color:var(--ink);font-size:17px;cursor:pointer}
 nav a.q{background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;text-decoration:none;padding:6px 14px;border-radius:999px;font-weight:700;font-size:13px;white-space:nowrap}
 .fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.fx svg{position:absolute;width:44px;height:44px;opacity:.12;color:var(--green);animation:fl 14s ease-in-out infinite}
-[data-theme=light] .fx svg{opacity:.15;color:var(--blue)}
+.fx svg.fn{position:absolute;opacity:.3;animation:fn 18s ease-in-out infinite;will-change:transform}
+[data-theme=light] .fx svg.fn{opacity:.45}
+@keyframes fn{0%,100%{transform:translate(0,0) rotate(var(--r,0deg))}50%{transform:translate(24px,-30px) rotate(calc(var(--r,0deg) + 10deg))}}
 @keyframes fl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-36px) rotate(18deg)}}
+@media(prefers-reduced-motion:reduce){.fx svg.fn,.ph .wk{animation:none}}
 @keyframes sp{to{transform:rotate(360deg)}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero{position:relative;z-index:1;padding:34px 16px 54px;background:radial-gradient(700px 320px at 85% 0,var(--glow),transparent 70%),linear-gradient(180deg,var(--bg2),var(--bg))}
@@ -32,7 +34,7 @@ nav a.q{background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;t
 .b1{background:linear-gradient(135deg,var(--blue),var(--green));color:#fff}.b2{border:1.5px solid var(--line);color:var(--ink);background:transparent}
 .ph{position:relative;max-width:170px;margin:auto}
 .ph img{width:100%;display:block;border-radius:16px;box-shadow:0 16px 34px rgba(0,0,0,.35);animation:bob 6s ease-in-out infinite}
-.ph .wk{position:absolute;width:64px;height:64px;inset-inline-end:-22px;top:-18px;color:var(--sun);animation:sp 5s linear infinite}
+.ph .wk{position:absolute;width:96px;height:37px;inset-inline-end:-14px;top:-10px;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3))}
 .stats{max-width:700px;margin:-30px auto 0;padding:0 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative;z-index:1}
 .stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center}
 .stats b{display:block;font-size:16px;color:var(--price)}.stats span{font-size:11.5px;color:var(--mut)}
@@ -74,12 +76,13 @@ footer{text-align:center;color:var(--mut);font-size:11.5px;padding:20px 12px 28p
 @media(min-width:640px){.qf .two{grid-template-columns:1fr 1fr}.qf{padding:16px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="fino" viewBox="0 0 72 28"><path d="M4 14C4 7 12 3 36 3s32 4 32 11-8 11-32 11S4 21 4 14Z" fill="#d9a35a" stroke="#a8702f" stroke-width="1.5"/><path d="M18 8l7 11M32 6l7 14M46 8l7 11" stroke="#f6dfae" stroke-width="3" stroke-linecap="round" fill="none"/></symbol></svg>
 <div class="fx" aria-hidden="true">
-<svg viewBox="0 0 24 24" style="top:12%;inset-inline-start:6%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v10M9 5c-3 3-3 8 3 10M15 5c3 3 3 8-3 10M12 15v7"/></svg>
-<svg viewBox="0 0 24 24" style="top:30%;inset-inline-end:8%;animation-delay:2s;animation-duration:17s" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 22V10M12 10c-4 0-6-3-6-6 4 0 6 3 6 6zM12 10c4 0 6-3 6-6-4 0-6 3-6 6zM12 16c-3 0-5-2-5-5M12 16c3 0 5-2 5-5"/></svg>
-<svg viewBox="0 0 24 24" style="top:55%;inset-inline-start:10%;animation-delay:4s;animation-duration:16s" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-8 8-8s8 3 8 8v5H4zM8 12v3M12 11v4M16 12v3"/></svg>
-<svg viewBox="0 0 24 24" style="top:72%;inset-inline-end:12%;animation-delay:1s;animation-duration:19s" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 20h14M6 20l-1-9h14l-1 9M8 11V8a4 4 0 018 0v3"/></svg>
-<svg viewBox="0 0 24 24" style="top:85%;inset-inline-start:42%;animation-delay:3s" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+<svg class="fn" viewBox="0 0 72 28" style="top:10%;inset-inline-start:5%;--r:-14deg;animation-duration:16s;width:104px;height:40px"><use href="#fino"/></svg>
+<svg class="fn" viewBox="0 0 72 28" style="top:26%;inset-inline-end:6%;--r:12deg;animation-delay:-4s;animation-duration:19s;width:93px;height:36px"><use href="#fino"/></svg>
+<svg class="fn" viewBox="0 0 72 28" style="top:48%;inset-inline-start:12%;--r:8deg;animation-delay:-8s;animation-duration:21s;width:114px;height:44px"><use href="#fino"/></svg>
+<svg class="fn" viewBox="0 0 72 28" style="top:66%;inset-inline-end:10%;--r:-10deg;animation-delay:-2s;animation-duration:18s;width:104px;height:40px"><use href="#fino"/></svg>
+<svg class="fn" viewBox="0 0 72 28" style="top:84%;inset-inline-start:40%;--r:16deg;animation-delay:-11s;animation-duration:22s;width:93px;height:36px"><use href="#fino"/></svg>
 </div>
 <div class="bar">نسخة تجريبية للمراجعة. الأسعار والصور افتراضية وليست أسعار ترست الحقيقية.</div>
 <nav><div class="brand"><i>TERST</i> ترست لمعدات المخابز</div><div class="tools"><button class="tg" id="tg" aria-label="تبديل الوضع الليلي والنهاري">☀</button><a class="q" href="#quote">اطلب عرض سعر</a></div></nav>
@@ -87,7 +90,7 @@ footer{text-align:center;color:var(--mut);font-size:11.5px;padding:20px 12px 28p
 <h1>معدات مخابز <span>تشتغل بجد</span> زي مخبزك</h1>
 <p>أفران وعجانات ومضارب وماكينات كحك وبسكوت. اختار المعدة المناسبة لمخبزك واطلب عرض السعر في دقيقة.</p>
 <div class="cta"><a class="b b1" href="#products">شوف المنتجات</a><a class="b b2" href="#quote">كلمنا</a></div></div>
-<div class="ph"><img id="hi" alt="فرن 5070 ترست"><svg class="wk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v10M9 5c-3 3-3 8 3 10M15 5c3 3 3 8-3 10M12 15v7"/></svg></div></div></div>
+<div class="ph"><img id="hi" alt="فرن 5070 ترست"><svg class="wk" viewBox="0 0 72 28"><use href="#fino"/></svg></div></div></div>
 <div class="stats"><div><b>6</b><span>منتجات</span></div><div><b>4</b><span>فئات</span></div><div><b>عرض سعر</b><span>لكل منتج</span></div></div>
 <section id="products"><h2>منتجاتنا</h2><p class="sub">صورة فرن 5070 حقيقية. صورة فرن 6080 معدلة بالذكاء الاصطناعي للتوضيح، وباقي المنتجات رسومات توضيحية. الأسعار افتراضية.</p><div class="grid" id="g"></div></section>
 <section id="qform"><h2>اطلب عرض سعر PDF</h2><p class="sub">املأ بياناتك واختر المنتجات والكميات، وهيتجهز لك عرض سعر PDF تحمله أو تشاركه على واتساب. الأسعار افتراضية.</p>
