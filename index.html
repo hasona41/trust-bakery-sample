@@ -49,6 +49,22 @@ h2{font-size:21px;margin:0 0 2px;font-weight:800}.sub{color:var(--mut);margin:0 
 .body{padding:10px 11px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
 .body h3{margin:0;font-size:14.5px}.body p{margin:0;color:var(--mut);font-size:12px;line-height:1.5}
 .pr{margin-top:auto;padding-top:6px;display:flex;flex-direction:column;gap:3px}
+.card{cursor:pointer}.mr{font-size:11px;color:var(--price);text-align:center;margin-top:4px}
+.md{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.65);display:none;align-items:flex-end;justify-content:center}.md.on{display:flex}
+.mb{background:var(--bg2);color:var(--ink);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:18px 18px 0 0;position:relative;padding:12px 12px 16px;animation:up .25s ease-out}
+@media(min-width:700px){.md{align-items:center}.mb{border-radius:18px}}
+@keyframes up{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.mx{position:absolute;top:8px;inset-inline-start:8px;z-index:3;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;cursor:pointer}
+.gl{position:relative;margin-top:30px;border-radius:12px;overflow:hidden;background:var(--art)}
+.gs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;direction:ltr}.gs::-webkit-scrollbar{display:none}
+.gs>div{flex:0 0 100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;height:min(56vw,300px);min-height:200px}
+.gs img,.gs video{max-width:100%;max-height:100%;object-fit:contain}.gs svg{width:70%;height:90%}
+.gn{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:18px;cursor:pointer}
+.gn.p{left:6px}.gn.n{right:6px}
+.dt{display:flex;justify-content:center;gap:6px;padding:6px 0}.dt i{width:7px;height:7px;border-radius:50%;background:var(--line)}.dt i.on{background:var(--price)}
+.mb h3{margin:10px 0 4px;font-size:18px}.mb p{margin:0 0 8px;color:var(--mut);font-size:13px}
+.mb ul{margin:6px 18px 10px 0;padding:0;font-size:13px;line-height:1.7;color:var(--mut)}
+.mb .pr{padding-top:0}
 .sp{font-size:11.5px;margin:4px 0}.sp summary{cursor:pointer;color:var(--price);font-weight:700}.sp ul{margin:4px 18px 0 0;padding:0;color:var(--mut);line-height:1.6}.pr small.ok{color:#0b6b3f;background:#d7f3e4}.terms{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.8;color:var(--mut)}
 .pr b{font-size:15px;color:var(--price)}.pr small{align-self:flex-start;color:#a06a00;background:#fff1cf;border-radius:5px;padding:0 6px;font-size:10.5px;font-weight:700}
 .card .b{background:var(--chip);color:var(--ink);border:1px solid var(--line);min-height:34px;margin-top:6px;font-size:12.5px;padding:0 8px}
@@ -106,6 +122,7 @@ footer{text-align:center;color:var(--mut);font-size:11.5px;padding:20px 12px 28p
 <section><h2>شروط العرض</h2><div class="terms">• الأسعار غير شاملة الضريبة والقيمة المضافة.<br>• مدة سريان عرض السعر أسبوعان من تاريخه.<br>• أسعار باقي المنتجات (المضرب ومكنة الكحك ومكنة البسكوت) افتراضية.<br>• العنوان: المنزلة، دقهلية، جمهورية مصر العربية.</div></section>
 <div class="quote" id="quote"><div class="in"><h2>اطلب عرض سعر</h2><p>أرسل اسم المعدة وهنرد عليك بالسعر والتفاصيل.</p>
 <div class="cta" style="justify-content:center"><a class="b wa" href="https://wa.me/201282710108">واتساب 01282710108</a><a class="b b2" href="tel:01020555775">اتصال 01020555775</a></div></div></div>
+<div class="md" id="md" role="dialog" aria-modal="true"><div class="mb"><button class="mx" id="mx" aria-label="إغلاق">✕</button><div id="mc"></div></div></div>
 <footer>شركة ترست للصناعات الهندسية ومستلزمات المخابز · المنزلة، دقهلية · 01282710108 – 01020555775<br>نسخة تجريبية: الصور توضيحية، وأسعار غير الأفران والعجان افتراضية.</footer>
 <svg width="0" height="0" style="position:absolute"><defs>
 <linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9d6df"/><stop offset="1" stop-color="#8fa3b2"/></linearGradient>
@@ -123,8 +140,29 @@ var OVS=["الفرن بالكامل من الإستانلس الحراري 430",
 var MXS=["شاسية العجان مصنوعة من أعلى الخامات","دراع العجان استانلس 304 / 50 ملي","حلة العجان من الاستانلس الطبي 304 عالي الجودة"];
 var P=[[I1,"أفران","فرن 5070 ترست","فرن بمقاس 50×70×15.",230000,1,OVS],[I2,"أفران","فرن 6080 ترست","فرن بمقاس 80×60.",230000,1,OVS],["spiral","عجانات","عجان دودة","عجانة دودة 2 شوال.",200000,1,MXS],["whisk","خلاطات","مضرب","مضرب للكريمات والخلطات والحلويات.",32000,0,[]],["kahk","ماكينات حلويات","مكنة كحك","ماكينة تشكيل الكحك.",41000,0,[]],["biscuit","ماكينات حلويات","مكنة بسكوت","ماكينة تشكيل البسكويت.",56000,0,[]]];
 var VALID="أسبوعين من تاريخه",PH1="01282710108",PH2="01020555775";
-document.getElementById("g").innerHTML=P.map(function(p){return '<div class="card"><div class="art"><span class="tag">'+p[1]+'</span>'+(p[0].length>40?'<img src="'+p[0]+'" alt="'+p[2]+'">':'<svg viewBox="0 0 220 200"><use href="#'+p[0]+'"/></svg>')+'</div><div class="body"><h3>'+p[2]+'</h3><p>'+p[3]+'</p>'+(p[6].length?'<details class="sp"><summary>المواصفات</summary><ul>'+p[6].map(function(s){return '<li>'+s+'</li>'}).join("")+'</ul></details>':'')+'<div class="pr"><b>'+p[4].toLocaleString("ar-EG")+' جنيه</b>'+(p[5]?'<small class="ok">غير شامل الضريبة</small>':'<small>سعر افتراضي</small>')+'</div><a class="b" href="#quote">اطلب عرض سعر</a></div></div>'}).join("");
+document.getElementById("g").innerHTML=P.map(function(p,i){return '<div class="card" data-i="'+i+'" tabindex="0" role="button" aria-label="تفاصيل '+p[2]+'"><div class="art"><span class="tag">'+p[1]+'</span>'+(p[0].length>40?'<img src="'+p[0]+'" alt="'+p[2]+'">':'<svg viewBox="0 0 220 200"><use href="#'+p[0]+'"/></svg>')+'</div><div class="body"><h3>'+p[2]+'</h3><p>'+p[3]+'</p><div class="pr"><b>'+p[4].toLocaleString("ar-EG")+' جنيه</b>'+(p[5]?'<small class="ok">غير شامل الضريبة</small>':'<small>سعر افتراضي</small>')+'</div><a class="b" href="#quote">اطلب عرض سعر</a><span class="mr">عرض التفاصيل والصور ◂</span></div></div>'}).join("");
 
+
+/* وسائط إضافية لكل منتج: أضف صورًا أو فيديوهات هنا. مثال: MEDIA[0]=[{t:"img",s:"img/oven1.jpg"},{t:"vid",s:"vid/oven.mp4"}] */
+var MEDIA={0:[],1:[],2:[],3:[],4:[],5:[]};
+var md=document.getElementById("md"),mc=document.getElementById("mc");
+function slides(i){var p=P[i],a=[];
+ a.push(p[0].length>40?'<img src="'+p[0]+'" alt="'+p[2]+'">':'<svg viewBox="0 0 220 200"><use href="#'+p[0]+'"/></svg>');
+ (MEDIA[i]||[]).forEach(function(m){a.push(m.t=="vid"?'<video src="'+m.s+'" controls playsinline preload="metadata"></video>':'<img src="'+m.s+'" alt="'+p[2]+'" loading="lazy">')});return a}
+function openM(i){var p=P[i],sl=slides(i);
+ mc.innerHTML='<div class="gl"><div class="gs" id="gs">'+sl.map(function(s){return '<div>'+s+'</div>'}).join("")+'</div>'+(sl.length>1?'<button class="gn p" id="gp" aria-label="السابق">‹</button><button class="gn n" id="gnx" aria-label="التالي">›</button>':'')+'</div>'+(sl.length>1?'<div class="dt" id="dt">'+sl.map(function(_,k){return '<i'+(k?'':' class="on"')+'></i>'}).join("")+'</div>':'')+
+ '<h3>'+p[2]+'</h3><p>'+p[3]+'</p>'+(p[6].length?'<b style="font-size:13px">المواصفات</b><ul>'+p[6].map(function(s){return '<li>'+s+'</li>'}).join("")+'</ul>':'')+
+ '<div class="pr"><b>'+p[4].toLocaleString("ar-EG")+' جنيه</b>'+(p[5]?'<small class="ok">غير شامل الضريبة</small>':'<small>سعر افتراضي</small>')+'</div><a class="b b1" id="mq" href="#quote" style="margin-top:10px;width:100%">اطلب عرض سعر</a>';
+ var gs=document.getElementById("gs"),dt=document.getElementById("dt");
+ if(dt){gs.onscroll=function(){var k=Math.round(gs.scrollLeft/gs.clientWidth);[].forEach.call(dt.children,function(d,j){d.className=j==k?"on":""})};
+  document.getElementById("gp").onclick=function(){gs.scrollBy({left:-gs.clientWidth,behavior:"smooth"})};document.getElementById("gnx").onclick=function(){gs.scrollBy({left:gs.clientWidth,behavior:"smooth"})}}
+ document.getElementById("mq").onclick=function(e){e.preventDefault();var q=document.getElementById("q"+i);if(!(+q.value>0))q.value=1;closeM();document.getElementById("quote").scrollIntoView({behavior:"smooth"})};
+ md.classList.add("on");document.body.style.overflow="hidden";document.getElementById("mx").focus()}
+function closeM(){md.classList.remove("on");document.body.style.overflow="";[].forEach.call(mc.querySelectorAll("video"),function(v){v.pause()})}
+document.getElementById("mx").onclick=closeM;md.onclick=function(e){if(e.target===md)closeM()};
+document.addEventListener("keydown",function(e){if(e.key=="Escape")closeM()});
+document.getElementById("g").onclick=function(e){if(e.target.closest("a"))return;var c=e.target.closest(".card");if(c)openM(+c.dataset.i)};
+document.getElementById("g").onkeydown=function(e){if(e.key=="Enter"){var c=e.target.closest(".card");if(c)openM(+c.dataset.i)}};
 var TRUST_WA="201282710108";
 /* قالب ترست: ضع روابط الصور هنا لاحقًا. bg = ورقة العرض الكاملة بالترويسة، sig = التوقيع، stamp = الختم، top = بداية بيانات العميل بالبكسل */
 var TPL={bg:"",sig:"",stamp:"",top:300};
